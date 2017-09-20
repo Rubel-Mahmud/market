@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>My all product's here : </h1>
+    {% if latest_product_list %}
+        <ul>
+            {% for product in latest_product_list %}
+               <li>
+                <a href="{% url 'product:detail' product.id %}" id="">{{ product.name }}</a><br>
+                <label for="#">{{ product.pub_date }}</label>
+               </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Products are available.Thank's</p>
+    {% endif %}
+{% endblock %}
